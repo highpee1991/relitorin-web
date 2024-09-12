@@ -4,16 +4,15 @@ import "slick-carousel/slick/slick-theme.css";
 
 const GlobalStyles = createGlobalStyle`
   :root {
-  /* Indigo */
-    --color-brand-50:#f7fff9;
-  --color-brand-100: #ecfcf3;
-  --color-brand-200: #d0f2d9;
-  --color-brand-500: #8efcaa;
-  --color-brand-600: #17c042;
-  --color-brand-700: #15803d;;
-  --color-brand-800: #1a592a;
-  --color-brand-900: ##90bf2a;
-  --color-brand-950: #648719;
+    --color-brand-50:#edf2f7;
+  --color-brand-100: #96cff7;
+  --color-brand-200: #40a9f2;
+  --color-brand-500: #1886d2;
+  --color-brand-600: #0f75bc;
+  --color-brand-700: #0f8ad3;
+  --color-brand-800: #0f75bc;
+  --color-brand-900: #0d70b4;
+  --color-brand-950: #0d6daf;
 
 
   /* Grey */
