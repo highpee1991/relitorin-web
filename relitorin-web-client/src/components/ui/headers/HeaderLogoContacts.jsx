@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPhoneVolume, FaEnvelope } from "react-icons/fa6";
+import { FaPhoneVolume, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -8,29 +8,23 @@ const LogoContacts = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--color-grey-50);
   flex-wrap: wrap;
+  margin-bottom: -0.7rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     flex-direction: column;
     text-align: center;
-  }
-
-  @media (max-width: 375px) {
-    align-items: center;
+    gap: 1rem;
   }
 `;
 
 const LogoContainer = styled.div`
-  margin-right: 2rem;
-
   img {
     max-width: 150px;
     height: auto;
   }
 
-  @media (max-width: 768px) {
-    margin-right: 0;
+  @media (max-width: 767px) {
     margin-bottom: 1rem;
   }
 `;
@@ -38,47 +32,44 @@ const LogoContainer = styled.div`
 const ContactInfo = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 2rem;
 
-  div {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-    justify-content: center;
-
-    span {
-      margin-left: 1rem;
-      font-size: 1.7rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    div {
-      justify-content: center;
-    }
-
-    span {
-      font-size: 1.5rem;
-    }
-  }
-
-  @media (max-width: 375px) {
+  @media (max-width: 767px) {
     flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 `;
 
 const ContactIcon = styled.span`
+  font-size: 1.8rem;
   color: var(--color-brand-700);
-  font-size: 2rem;
+  transition: color 0.3s ease;
   display: flex;
-  justify-content: center;
+  align-items: center;
+`;
 
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
+const Text = styled.div`
+  color: var(--color-grey-600);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
 `;
 
 const IconText = styled.div`
-  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &:hover ${ContactIcon} {
+    color: var(--color-brand-800);
+  }
+
+  &:hover ${Text} {
+    color: var(--color-grey-700);
+  }
 `;
 
 const HeaderLogoContacts = () => {
@@ -94,13 +85,13 @@ const HeaderLogoContacts = () => {
           <ContactIcon>
             <FaPhoneVolume />
           </ContactIcon>
-          <span>832 992 2340</span>
+          <Text>832 992 2340</Text>
         </IconText>
         <IconText>
           <ContactIcon>
             <FaEnvelope />
           </ContactIcon>
-          <span>reliance@relitorin.com</span>
+          <Text>reliance@relitorin.com</Text>
         </IconText>
       </ContactInfo>
     </LogoContacts>

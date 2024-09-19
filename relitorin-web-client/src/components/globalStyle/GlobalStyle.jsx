@@ -19,7 +19,9 @@ const GlobalStyles = createGlobalStyle`
   --color-grey-0: #fff;
   --color-grey-50: #f9fafb;
   --color-grey-100: #f3f4f6;
+  --color-grey-150: #f8f9fa;
   --color-grey-200: #e5e7eb;
+  --color-grey-250: #e1e1e2;
   --color-grey-300: #d1d5db;
   --color-grey-400: #9ca3af;
   --color-grey-500: #6b7280;
@@ -55,6 +57,9 @@ const GlobalStyles = createGlobalStyle`
   --border-radius-sm: 5px;
   --border-radius-md: 7px;
   --border-radius-lg: 9px;
+
+  // Break point
+  --breakpoint-mini: 768px;
 
   /* For dark mode */
   --image-grayscale: 0;
