@@ -7,7 +7,7 @@ const Header = () => {
   const { width } = useResize();
   return (
     <div>
-      {width > 767 && <HeaderLogoContacts />}
+      {width > 1010 && <HeaderLogoContacts />}
       <Navbar />
     </div>
   );

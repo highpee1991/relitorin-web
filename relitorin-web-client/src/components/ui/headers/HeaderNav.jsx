@@ -16,10 +16,9 @@ const Header = styled.header`
   align-items: center;
   padding: 1rem 2rem;
   background-color: var(--color-grey-150);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #e9ecef;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1010px) {
     justify-content: flex-start;
     background-color: white;
     padding: 0;
@@ -31,7 +30,7 @@ const Logo = styled.img`
   height: auto;
   margin-left: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1010px) {
     margin-left: 1.5rem;
   }
 `;
@@ -42,7 +41,7 @@ const Hamburger = styled.div`
   font-size: 2.7rem;
   background-color: transparent;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1010px) {
     display: block;
     height: 100%;
     padding: 1rem;
@@ -61,7 +60,7 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1010px) {
     display: none;
   }
 `;
@@ -71,7 +70,7 @@ const NavList = styled.ul`
   display: flex;
   gap: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1010px) {
     flex-direction: column;
     /* gap: 1.5rem; */
     margin: 0;
@@ -87,7 +86,7 @@ const NavItem = styled.li`
   padding: 0.5rem 1rem;
   transition: border-color 0.3s ease-in-out;
 
-  @media (min-width: 769px) {
+  @media (min-width: 1011px) {
     &:hover {
       border-bottom: 1px solid var(--color-brand-800);
     }
@@ -107,11 +106,7 @@ const NavItem = styled.li`
       font-weight: 700;
     }
 
-    @media (max-width: 910px) {
-      font-size: 1.1rem;
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 1010px) {
       font-size: 1.3rem;
     }
   }
@@ -124,7 +119,6 @@ const DropdownButton = styled.div`
   color: var(--color-grey-800);
   font-size: 1.3rem;
   font-weight: 600;
-  /* padding: 0.5rem 0; */
   transition: color 0.3s ease-in-out;
   text-transform: uppercase;
 
@@ -132,11 +126,7 @@ const DropdownButton = styled.div`
     color: var(--color-brand-900);
   }
 
-  @media (max-width: 910px) {
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: 1010px) {
     font-size: 1.3rem;
   }
 `;
@@ -144,7 +134,7 @@ const DropdownButton = styled.div`
 const DropdownMenu = styled.ul`
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   position: absolute;
-  top: 130%;
+  top: 135%;
   left: 0;
   min-width: 24rem;
   background-color: var(--color-grey-50);
@@ -244,7 +234,7 @@ const IconsSeprator = styled.div`
   align-items: center;
   flex: 1;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1010px) {
     justify-content: flex-end;
   }
 `;
@@ -299,14 +289,14 @@ const Navbar = () => {
 
   const handleClose = () => {
     setIsDropdownOpen("");
-    if (width < 768) {
+    if (width <= 1010) {
       setIsModalOpen(false);
     }
   };
 
   return (
     <Header>
-      {width < 768 && (
+      {width <= 1010 && (
         <>
           <Hamburger onClick={toggleMenu}>
             {isModalOpen ? <FaTimes /> : <FaBars />}
@@ -546,6 +536,36 @@ const Navbar = () => {
           </NavItem>
           <NavItem>
             <DropdownButton
+              onMouseEnter={() => toggleDropdown("products")}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => toggleDropdown("products")}
+            >
+              Products <FaCaretDown />
+            </DropdownButton>
+            <DropdownMenu
+              isOpen={isDropdownOpen === "products"}
+              onMouseEnter={() => toggleDropdown("products")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <li>
+                <NavLink to="/productsoverview" onClick={handleClose}>
+                  Products Overview
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/relitorinproducts" onClick={handleClose}>
+                  Relitorin Products
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/medicalequipmentsupplies" onClick={handleClose}>
+                  Medical Equipment Supplies
+                </NavLink>
+              </li>
+            </DropdownMenu>
+          </NavItem>
+          <NavItem>
+            <DropdownButton
               onMouseEnter={() => toggleDropdown("inventory")}
               onMouseLeave={handleMouseLeave}
               onClick={() => toggleDropdown("inventory")}
@@ -574,7 +594,7 @@ const Navbar = () => {
           </NavItem>
         </NavList>
       </Nav>
-      {width < 768 && (
+      {width <= 1010 && (
         <IconsSeprator>
           <>
             <ModalOverlay isOpen={isModalOpen} />
@@ -801,6 +821,33 @@ const Navbar = () => {
                         onClick={handleClose}
                       >
                         Testimonials & Case Studies
+                      </NavLink>
+                    </li>
+                  </DropdownMenu>
+                </NavItem>
+                <NavItem>
+                  <DropdownButton
+                    onClick={() => toggleDropdownMobile("products")}
+                  >
+                    Products <FaCaretDown />
+                  </DropdownButton>
+                  <DropdownMenu isOpen={isDropdownOpen === "products"}>
+                    <li>
+                      <NavLink to="/productsoverview" onClick={handleClose}>
+                        Products Overview
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/relitorinproducts" onClick={handleClose}>
+                        Relitorin Products
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/medicalequipmentsupplies"
+                        onClick={handleClose}
+                      >
+                        Medical Equipment Supplies
                       </NavLink>
                     </li>
                   </DropdownMenu>

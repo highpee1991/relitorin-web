@@ -34,6 +34,10 @@ import Contact from "./components/pages/Contact";
 import TelecommunicationsIT from "./components/pages/industries/TelecommunicationsIT";
 import InventoryList from "./components/pages/inventory/InventoryList";
 import ManufacturingIndustrial from "./components/pages/industries/ManufacturingIndustrial";
+import ProductsOverview from "./components/pages/products/ProductsOverview";
+import RelitorinProducts from "./components/pages/products/RelitorinProducts";
+import MedicalEquipmentSupplies from "./components/pages/products/MedicalEquipmentSupplies";
+import TexasInventoryDetails from "./components/ui/texasInventaryCarousal/TexasInventoryDetails";
 
 function App() {
   return (
@@ -44,6 +48,12 @@ function App() {
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
+
+            {/* link with id */}
+            <Route
+              path="texasinventory/:texasId"
+              element={<TexasInventoryDetails />}
+            />
 
             {/* //about us */}
             <Route path="whoweare" element={<WhoWeAre />} />
@@ -130,6 +140,14 @@ function App() {
             <Route
               path="testimonialsscsestudies"
               element={<TestimonialsCaseStudies />}
+            />
+
+            {/* products */}
+            <Route path="productsoverview" element={<ProductsOverview />} />
+            <Route path="relitorinproducts" element={<RelitorinProducts />} />
+            <Route
+              path="medicalequipmentsupplies"
+              element={<MedicalEquipmentSupplies />}
             />
 
             {/* inventory */}

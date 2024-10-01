@@ -2,16 +2,17 @@ import React from "react";
 import { FaPhoneVolume, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import useResize from "../../hooks/useResize";
 
 const LogoContacts = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   flex-wrap: wrap;
-  margin-bottom: -0.7rem;
+  margin: -1rem 0;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1010px) {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
@@ -24,7 +25,7 @@ const LogoContainer = styled.div`
     height: auto;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1010px) {
     margin-bottom: 1rem;
   }
 `;
@@ -35,7 +36,7 @@ const ContactInfo = styled.div`
   align-items: center;
   gap: 2rem;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1010px) {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
@@ -73,29 +74,35 @@ const IconText = styled.div`
 `;
 
 const HeaderLogoContacts = () => {
-  return (
-    <LogoContacts>
-      <LogoContainer>
-        <Link to="/">
-          <img src="/logo/rel1.png" alt="rel-logo" />
-        </Link>
-      </LogoContainer>
-      <ContactInfo>
-        <IconText>
-          <ContactIcon>
-            <FaPhoneVolume />
-          </ContactIcon>
-          <Text>832 992 2340</Text>
-        </IconText>
-        <IconText>
-          <ContactIcon>
-            <FaEnvelope />
-          </ContactIcon>
-          <Text>reliance@relitorin.com</Text>
-        </IconText>
-      </ContactInfo>
-    </LogoContacts>
-  );
+  const { width } = useResize();
+
+  if (width > 1010) {
+    return (
+      <LogoContacts>
+        <LogoContainer>
+          <Link to="/">
+            <img src="/logo/rel11.png" alt="rel-logo" />
+          </Link>
+        </LogoContainer>
+        <ContactInfo>
+          <IconText>
+            <ContactIcon>
+              <FaPhoneVolume />
+            </ContactIcon>
+            <Text>832 992 2340</Text>
+          </IconText>
+          <IconText>
+            <ContactIcon>
+              <FaEnvelope />
+            </ContactIcon>
+            <Text>reliance@relitorin.com</Text>
+          </IconText>
+        </ContactInfo>
+      </LogoContacts>
+    );
+  }
+
+  return null;
 };
 
 export default HeaderLogoContacts;
