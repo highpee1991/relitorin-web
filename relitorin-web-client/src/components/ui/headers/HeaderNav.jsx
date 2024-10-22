@@ -15,7 +15,7 @@ const Header = styled.header`
   justify-content: center;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--color-grey-150);
+  background-color: var(--color-grey-100);
   border-bottom: 1px solid #e9ecef;
 
   @media (max-width: 1010px) {

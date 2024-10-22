@@ -25,7 +25,7 @@ const MissionContainer = styled.div`
 `;
 
 const MissionStatementStyle = styled.p`
-  font-size: 22px;
+  font-size: 20px;
   color: var(--color-text);
   margin: 0;
   font-style: italic;

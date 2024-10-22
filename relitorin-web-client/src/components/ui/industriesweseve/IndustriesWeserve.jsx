@@ -6,56 +6,56 @@ import Button from "../button/Button";
 const whatWeDo = [
   {
     img: "/banner/banner1.jpg",
-    items: "Pipes, Valves & Fittings",
+    items: "Oil & Gas",
     about: "Specialised in valves, pipes and fittings for oil and gas sectors",
     cta: "Request a Quote",
     link: "#",
   },
   {
     img: "/banner/banner2.jpg",
-    items: "Oil & Gas Equipment",
+    items: "Power & Energy",
     about: "Leading supplier of specialized oil and gas equipment.",
     cta: "Request a Quote",
     link: "#",
   },
   {
     img: "/banner/banner3.jpg",
-    items: "Power Generation",
+    items: "Construction & Infrastructure",
     about: "Delivering efficient power generation systems worldwide.",
     cta: "Request a Quote",
     link: "#",
   },
   {
     img: "/banner/banner2.jpg",
-    items: "Oil & Gas Equipment",
+    items: "Telecommunications & IT",
     about: "Leading supplier of specialized oil and gas equipment.",
     cta: "Request a Quote",
     link: "#",
   },
   {
     img: "/banner/banner4.jpg",
-    items: "Power Generation",
+    items: "Manufacturing & Industrial",
     about: "Delivering efficient power generation systems worldwide.",
     cta: "Request a Quote",
     link: "#",
   },
   {
     img: "/banner/banner4.jpg",
-    items: "Power Generation",
+    items: "Transportation & Logistics",
     about: "Delivering efficient power generation systems worldwide.",
     cta: "Request a Quote",
     link: "#",
   },
   {
     img: "/banner/banner4.jpg",
-    items: "Power Generation",
+    items: "Safety & Security",
     about: "Delivering efficient power generation systems worldwide.",
     cta: "Request a Quote",
     link: "#",
   },
   {
     img: "/banner/banner4.jpg",
-    items: "Power Generation",
+    items: "Environmental Solutions",
     about: "Delivering efficient power generation systems worldwide.",
     cta: "Request a Quote",
     link: "#",
@@ -163,7 +163,7 @@ const CardDescription = styled.p`
 `;
 
 // Main Component
-const WhatWeDo = () => {
+const IndustriesWeServe = () => {
   const [clickedIndex, setClickedIndex] = useState(null);
 
   const handleClick = (index) => {
@@ -172,7 +172,7 @@ const WhatWeDo = () => {
 
   return (
     <>
-      <Title>What We Do</Title>
+      <Title>Industries We Serve</Title>
       <GridContainer>
         {whatWeDo.map((item, index) => (
           <Card key={index} onClick={() => handleClick(index)}>
@@ -204,4 +204,4 @@ const WhatWeDo = () => {
   );
 };
 
-export default WhatWeDo;
+export default IndustriesWeServe;

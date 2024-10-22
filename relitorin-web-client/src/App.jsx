@@ -30,7 +30,6 @@ import CustomizationFlexibility from "./components/pages/whyChooseUs/Customizati
 import CustomerCentricApproach from "./components/pages/whyChooseUs/CustomerCentricApproach";
 import TestimonialsCaseStudies from "./components/pages/whyChooseUs/TestimonialsCaseStudies";
 import Texasinventories from "./components/pages/inventory/texasinventories";
-import Contact from "./components/pages/Contact";
 import TelecommunicationsIT from "./components/pages/industries/TelecommunicationsIT";
 import InventoryList from "./components/pages/inventory/InventoryList";
 import ManufacturingIndustrial from "./components/pages/industries/ManufacturingIndustrial";
@@ -38,6 +37,7 @@ import ProductsOverview from "./components/pages/products/ProductsOverview";
 import RelitorinProducts from "./components/pages/products/RelitorinProducts";
 import MedicalEquipmentSupplies from "./components/pages/products/MedicalEquipmentSupplies";
 import TexasInventoryDetails from "./components/ui/texasInventaryCarousal/TexasInventoryDetails";
+import ContactUs from "./components/ui/contacts/ContactUs";
 
 function App() {
   return (
@@ -155,7 +155,7 @@ function App() {
             <Route path="texasinventories" element={<Texasinventories />} />
 
             {/*  */}
-            <Route path="contact" element={<Contact />} />
+            <Route path="contact" element={<ContactUs />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
