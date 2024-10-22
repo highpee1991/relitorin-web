@@ -9,7 +9,7 @@ const FooterWrapper = styled.footer`
 
 const Footer = () => {
   return (
-    <FooterWrapper>
+    <FooterWrapper id="footer">
       <ContactUs />
     </FooterWrapper>
   );

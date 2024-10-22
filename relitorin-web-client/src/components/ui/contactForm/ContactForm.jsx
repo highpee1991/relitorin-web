@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import emailjs from "emailjs-com";
 import styled from "styled-components";
 import Button from "../button/Button";
 
@@ -69,17 +70,53 @@ const MandatoryIcon = styled.span`
   margin-left: 0.25rem;
 `;
 
+const SuccessMessage = styled.p`
+  color: green;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+`;
+
+const FailureMessage = styled.p`
+  color: red;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+`;
+
 const ContactForm = () => {
+  const [loading, setIsLoading] = useState(false);
+  const [message, setIsMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    setIsLoading(true);
+    setIsMessage("");
+
+    emailjs
+      .send("service_4whk5yj", "template_czgg89s", data, "fdPzGttgQSYJjVhYx")
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setIsMessage("Message sent successfully!");
+          setMessageType("success");
+          reset();
+        },
+        (err) => {
+          console.log("FAILED...", err);
+          setIsMessage("Failed to send the message. Please try again.");
+          setMessageType("failed");
+        }
+      )
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -172,7 +209,19 @@ const ContactForm = () => {
           <TextArea rows="4" {...register("comments")} />
         </FieldWrapper>
 
-        <Button size="small">Send</Button>
+        <Button size="small" disabled={loading}>
+          {loading ? "Submitting..." : "Send"}
+        </Button>
+        {message && (
+          <>
+            {" "}
+            {messageType === "success" ? (
+              <SuccessMessage>{message}</SuccessMessage>
+            ) : (
+              <FailureMessage>{message}</FailureMessage>
+            )}
+          </>
+        )}
       </form>
     </FormWrapper>
   );

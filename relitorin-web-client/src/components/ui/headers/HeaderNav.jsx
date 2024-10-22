@@ -8,6 +8,7 @@ import {
   FaPhoneVolume,
 } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import useResize from "../../hooks/useResize";
 
 const Header = styled.header`
@@ -590,7 +591,9 @@ const Navbar = () => {
             </DropdownMenu>
           </NavItem>
           <NavItem>
-            <NavLink to="/contact">CONTACT</NavLink>
+            <HashLink smooth to="#footer">
+              CONTACT
+            </HashLink>
           </NavItem>
         </NavList>
       </Nav>
@@ -872,9 +875,9 @@ const Navbar = () => {
                   </DropdownMenu>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/contact" onClick={handleClose}>
+                  <HashLink smooth to="#footer" onClick={handleClose}>
                     CONTACT
-                  </NavLink>
+                  </HashLink>
                 </NavItem>
               </NavList>
             </Modal>
