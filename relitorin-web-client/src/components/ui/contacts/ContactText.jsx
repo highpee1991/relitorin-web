@@ -47,9 +47,9 @@ const ContactText = () => {
       </IconWrapper>
       <Title>Contact Us</Title>
       <Description>
-        If you have any general inquiries about the products we offer or would
-        like to request a quote, please feel free to contact us using any of the
-        methods shown below.
+        If you have any general inquiries about our products or would like to
+        request a quote, please reach out to us at reliance@relitorin.com or
+        fill out the form below.
       </Description>
       <DescriptionKey>We look forward to hearing from you!</DescriptionKey>
     </TextContainer>

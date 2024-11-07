@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import items from "../../hero/heroData";
+import items from "./texasinventoryData";
 import { useNavigate, useParams } from "react-router-dom";
 import CarousalCard from "./Carousalcard";
 import useResize from "../../hooks/useResize";
 import Button from "../button/Button";
 import { FaShare } from "react-icons/fa6";
+import Spinner from "../spinner/Spinner";
 
 const Wrapp = styled.div`
   margin: 0 2rem;
@@ -75,10 +76,20 @@ const NavigationButton = styled.button`
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(2);
+  const [isLoading, setIsloading] = useState(true);
   const navigate = useNavigate();
   const texasInventoryId = useParams();
   const { width } = useResize();
   const autoPlayRef = useRef();
+
+  useEffect(() => {
+    setIsloading(true);
+    const timer = setTimeout(() => {
+      setIsloading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     autoPlayRef.current = handleNext;
@@ -123,41 +134,52 @@ const Carousel = () => {
 
   return (
     <Wrapp>
-      <Title>Texas Inventory</Title>
-      <CarouselContainer>
-        <NavigationButton left onClick={handlePrev}>
-          Prev
-        </NavigationButton>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          <Title>Texas Inventory</Title>
+          <CarouselContainer>
+            <NavigationButton left onClick={handlePrev}>
+              Prev
+            </NavigationButton>
 
-        <CarouselWrapper>
-          {getDisplayItems().map((item, index) => {
-            const isActive = index === Math.floor(getDisplayItems().length / 2);
-            return (
-              <CarouselItem key={index} isActive={isActive}>
-                <CarousalCard
-                  key={item.id}
-                  image={item.image}
-                  title={item.header}
-                  productId={item.id}
-                />
-              </CarouselItem>
-            );
-          })}
-        </CarouselWrapper>
+            <CarouselWrapper>
+              {getDisplayItems().map((item, index) => {
+                const isActive =
+                  index === Math.floor(getDisplayItems().length / 2);
+                return (
+                  <CarouselItem key={index} isActive={isActive}>
+                    <CarousalCard
+                      key={item.id}
+                      image={item.image}
+                      title={
+                        item.title.length > 30
+                          ? item.title.substring(0, 30) + "..."
+                          : item.title
+                      }
+                      productId={item.id}
+                    />
+                  </CarouselItem>
+                );
+              })}
+            </CarouselWrapper>
 
-        <NavigationButton onClick={handleNext}>Next</NavigationButton>
-      </CarouselContainer>
-      <Button
-        onClick={handleViewAll}
-        size={`${width > 480 ? "medium" : "small"}`}
-        style={{
-          width: `100%`,
-          marginTop: `-1.7rem`,
-        }}
-      >
-        All Texas Inventory
-        <FaShare />
-      </Button>
+            <NavigationButton onClick={handleNext}>Next</NavigationButton>
+          </CarouselContainer>
+          <Button
+            onClick={handleViewAll}
+            size={`${width > 480 ? "medium" : "small"}`}
+            style={{
+              width: `100%`,
+              marginTop: `-1.7rem`,
+            }}
+          >
+            All Texas Inventory
+            <FaShare />
+          </Button>
+        </>
+      )}
     </Wrapp>
   );
 };

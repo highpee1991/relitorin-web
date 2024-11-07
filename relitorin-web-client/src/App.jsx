@@ -29,7 +29,6 @@ import QualityAssurance from "./components/pages/whyChooseUs/QualityAssurance";
 import CustomizationFlexibility from "./components/pages/whyChooseUs/CustomizationFlexibility";
 import CustomerCentricApproach from "./components/pages/whyChooseUs/CustomerCentricApproach";
 import TestimonialsCaseStudies from "./components/pages/whyChooseUs/TestimonialsCaseStudies";
-import Texasinventories from "./components/pages/inventory/texasinventories";
 import TelecommunicationsIT from "./components/pages/industries/TelecommunicationsIT";
 import InventoryList from "./components/pages/inventory/InventoryList";
 import ManufacturingIndustrial from "./components/pages/industries/ManufacturingIndustrial";
@@ -38,6 +37,7 @@ import RelitorinProducts from "./components/pages/products/RelitorinProducts";
 import MedicalEquipmentSupplies from "./components/pages/products/MedicalEquipmentSupplies";
 import TexasInventoryDetails from "./components/ui/texasInventaryCarousal/TexasInventoryDetails";
 import ContactUs from "./components/ui/contacts/ContactUs";
+import Texasinventories from "./components/pages/inventory/texasinventory/Texasinventories";
 
 function App() {
   return (
