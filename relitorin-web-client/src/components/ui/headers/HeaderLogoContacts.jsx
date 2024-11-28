@@ -76,6 +76,8 @@ const IconText = styled.div`
 const HeaderLogoContacts = () => {
   const { width } = useResize();
 
+  console.log("width:", width);
+
   if (width > 1010) {
     return (
       <LogoContacts>

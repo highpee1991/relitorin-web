@@ -40,7 +40,9 @@ const Texasinventories = () => {
     setisLoading(true);
     setCurrentItems(paginatedData);
     setCurrentPage(newPage);
-    setisLoading(false);
+    setTimeout(() => {
+      setisLoading(false);
+    }, 500);
   };
 
   return (

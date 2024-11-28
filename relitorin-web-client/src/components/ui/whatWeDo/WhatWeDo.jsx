@@ -1,66 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "../button/Button";
-
-// Sample data
-const whatWeDo = [
-  {
-    img: "/banner/banner1.jpg",
-    items: "Pipes, Valves & Fittings",
-    about: "Specialised in valves, pipes and fittings for oil and gas sectors",
-    cta: "Request a Quote",
-    link: "#",
-  },
-  {
-    img: "/banner/banner2.jpg",
-    items: "Oil & Gas Equipment",
-    about: "Leading supplier of specialized oil and gas equipment.",
-    cta: "Request a Quote",
-    link: "#",
-  },
-  {
-    img: "/banner/banner3.jpg",
-    items: "Power Generation",
-    about: "Delivering efficient power generation systems worldwide.",
-    cta: "Request a Quote",
-    link: "#",
-  },
-  {
-    img: "/banner/banner2.jpg",
-    items: "Oil & Gas Equipment",
-    about: "Leading supplier of specialized oil and gas equipment.",
-    cta: "Request a Quote",
-    link: "#",
-  },
-  {
-    img: "/banner/banner4.jpg",
-    items: "Power Generation",
-    about: "Delivering efficient power generation systems worldwide.",
-    cta: "Request a Quote",
-    link: "#",
-  },
-  {
-    img: "/banner/banner4.jpg",
-    items: "Power Generation",
-    about: "Delivering efficient power generation systems worldwide.",
-    cta: "Request a Quote",
-    link: "#",
-  },
-  {
-    img: "/banner/banner4.jpg",
-    items: "Power Generation",
-    about: "Delivering efficient power generation systems worldwide.",
-    cta: "Request a Quote",
-    link: "#",
-  },
-  {
-    img: "/banner/banner4.jpg",
-    items: "Power Generation",
-    about: "Delivering efficient power generation systems worldwide.",
-    cta: "Request a Quote",
-    link: "#",
-  },
-];
+import whatWeDoData from "./whatWeDoData";
+import { useNavigate } from "react-router-dom";
 
 const GridContainer = styled.div`
   display: grid;
@@ -162,19 +104,47 @@ const CardDescription = styled.p`
   margin-bottom: 20px;
 `;
 
+const CTAButton = styled.button`
+  background-color: white;
+  color: var(--color-brand-800);
+  border: 2px solid var(--color-brand-100);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-brand-300);
+    color: white;
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 // Main Component
 const WhatWeDo = () => {
   const [clickedIndex, setClickedIndex] = useState(null);
+  const navigate = useNavigate();
 
   const handleClick = (index) => {
     setClickedIndex(clickedIndex === index ? null : index);
+  };
+
+  const handleNavigate = (link) => {
+    if (link !== "#") {
+      navigate(link);
+    }
   };
 
   return (
     <>
       <Title>What We Do</Title>
       <GridContainer>
-        {whatWeDo.map((item, index) => (
+        {whatWeDoData.map((item, index) => (
           <Card key={index} onClick={() => handleClick(index)}>
             <CardInner
               className="card-inner"
@@ -192,9 +162,12 @@ const WhatWeDo = () => {
               <CardBack>
                 <CardTitleBack>{item.items}</CardTitleBack>
                 <CardDescription>{item.about}</CardDescription>
-                <Button size="small" onClick={item.link}>
-                  {item.cta}
-                </Button>
+                <CTAButton
+                  size="small"
+                  onClick={() => handleNavigate(item.link)}
+                >
+                  View Details
+                </CTAButton>
               </CardBack>
             </CardInner>
           </Card>

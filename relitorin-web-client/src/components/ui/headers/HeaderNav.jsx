@@ -327,15 +327,15 @@ const Navbar = () => {
                   Who We Are
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/vissionmissionvalue" onClick={handleClose}>
                   Vision, Mission & Values
                 </NavLink>
-              </li>
+              </li> */}
               <li>
-                <NavLink to="/ourlocation" onClick={handleClose}>
+                <HashLink smooth to="#footer" onClick={handleClose}>
                   Our Location
-                </NavLink>
+                </HashLink>
               </li>
               <li>
                 <NavLink to="/gallery" onClick={handleClose}>
@@ -597,6 +597,7 @@ const Navbar = () => {
           </NavItem>
         </NavList>
       </Nav>
+      {/* Mobile */}
       {width <= 1010 && (
         <IconsSeprator>
           <>
@@ -614,15 +615,15 @@ const Navbar = () => {
                         Who We Are
                       </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <NavLink to="/vissionmissionvalue" onClick={handleClose}>
                         Vision, Mission & Values
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li>
-                      <NavLink to="/ourlocation" onClick={handleClose}>
+                      <HashLink smooth to="#footer" onClick={handleClose}>
                         Our Location
-                      </NavLink>
+                      </HashLink>
                     </li>
                     <li>
                       <NavLink to="/gallery" onClick={handleClose}>

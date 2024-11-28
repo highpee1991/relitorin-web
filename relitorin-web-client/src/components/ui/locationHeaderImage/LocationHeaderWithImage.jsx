@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 100vw;
-  height: 14rem;
+  width: 100%;
+  max-width: 100vw;
+  height: 20rem;
   margin-bottom: 1rem;
   background-image: ${({ image }) => `url(${image})`};
   background-size: cover;
@@ -13,6 +14,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
+  overflow-y: hidden;
 
   /* Dark overlay */
   &::before {

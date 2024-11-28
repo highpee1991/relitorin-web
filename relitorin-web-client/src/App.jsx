@@ -8,8 +8,7 @@ import WhoWeAre from "./components/pages/aboutUs/WhoWeAre";
 import VisionMissionValue from "./components/pages/aboutUs/VisionMissionValue";
 import OurLocation from "./components/pages/aboutUs/OurLocation";
 import Gallery from "./components/pages/aboutUs/Gallery";
-import PipesValvesFittings from "./components/pages/whatwedo/PipesValvesFittings";
-import ElectricalsSolutions from "./components/pages/whatwedo/ElectricalsSolutions";
+import ElectricalsSolutions from "./components/pages/whatwedo/electricalSolution/ElectricalsSolutions";
 import HeavyEquipments from "./components/pages/whatwedo/HeavyEquipments";
 import InfrastructureCommunication from "./components/pages/whatwedo/InfrastructureCommunication";
 import SpecializedIindustrialSolutions from "./components/pages/whatwedo/SpecializedIindustrialSolutions";
@@ -38,6 +37,9 @@ import MedicalEquipmentSupplies from "./components/pages/products/MedicalEquipme
 import TexasInventoryDetails from "./components/ui/texasInventaryCarousal/TexasInventoryDetails";
 import ContactUs from "./components/ui/contacts/ContactUs";
 import Texasinventories from "./components/pages/inventory/texasinventory/Texasinventories";
+import PipesValvesFittings from "./components/pages/whatwedo/pipesValvesFittings/PipesValvesFittings";
+import DropDownSubCategory from "./components/ui/whatWeDo/DropDownSubCategory";
+import categories from "./components/pages/whatwedo/pipesValvesFittings/pipesValvesFittingsData";
 
 function App() {
   return (
@@ -68,6 +70,10 @@ function App() {
             <Route
               path="pipesvalvesfitting"
               element={<PipesValvesFittings />}
+            />
+            <Route
+              path="category/:categoryId"
+              element={<DropDownSubCategory categories={categories} />}
             />
             <Route
               path="electricalssolutions"

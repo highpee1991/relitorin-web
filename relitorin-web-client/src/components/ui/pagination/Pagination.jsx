@@ -26,13 +26,19 @@ const Pagination = ({ items, itemsPerPage, onPageChange }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(items.length / itemsPerPage);
 
-  useEffect(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const paginatedData = items.slice(startIndex, startIndex + itemsPerPage);
-    onPageChange(paginatedData);
-  }, [items, currentPage, itemsPerPage, onPageChange]);
+  // useEffect(() => {
+  //   const startIndex = (currentPage - 1) * itemsPerPage;
+  //   const paginatedData = items.slice(startIndex, startIndex + itemsPerPage);
+  //   onPageChange(paginatedData);
+  // }, [items, currentPage, itemsPerPage, onPageChange]);
 
-  const handlePageChange = (page) => setCurrentPage(page);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    const startIndex = (page - 1) * itemsPerPage;
+    const paginatedData = items.slice(startIndex, startIndex + itemsPerPage);
+    onPageChange(paginatedData, page);
+  };
+
   return (
     <PaginationContainer>
       <PaginationButton
