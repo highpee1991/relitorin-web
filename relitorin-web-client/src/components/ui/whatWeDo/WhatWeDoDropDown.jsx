@@ -20,7 +20,7 @@ const PVFStyle = styled.div`
   }
 `;
 
-const WhatWeDoDropDown = ({ categories }) => {
+const WhatWeDoDropDown = ({ categories, path }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const WhatWeDoDropDown = ({ categories }) => {
   }, []);
 
   const handleClick = (categoryId) => {
-    navigate(`/category/${categoryId}`);
+    navigate(`/${path}/${categoryId}`);
   };
 
   return (

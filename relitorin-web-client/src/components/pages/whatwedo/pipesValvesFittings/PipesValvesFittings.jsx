@@ -63,7 +63,7 @@ const PipesValvesFittings = () => {
           <PvfImage src="/what_we_do/PVF.webp" alt="pvc" />
         </Description>
       </ContentContainer>
-      <WhatWeDoDropDown categories={categories} />
+      <WhatWeDoDropDown path="pipes" categories={categories} />
     </div>
   );
 };

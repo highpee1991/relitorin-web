@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import LocationHeaderWithImage from "../../../ui/locationHeaderImage/LocationHeaderWithImage";
+import electricalData from "../electricalSolution/electricalData";
 import WhatWeDoDropDown from "../../../ui/whatWeDo/WhatWeDoDropDown";
-import electricalData from "./electricalData";
 
 const ContentContainer = styled.div`
   margin: 3rem 1rem;
@@ -49,16 +49,16 @@ const ElectricalsSolutions = () => {
     <div>
       <LocationHeaderWithImage
         image="/electricity/variableFrequencyDrive.jpg"
-        text="Electrical Solutions"
+        text="Heavy Equipment & Vehicles"
       />
       <ContentContainer>
         <Description>
           <Text>
-            Whatever the project—whether it's industrial power distribution,
-            residential wiring systems, renewable energy installations, or
-            advanced electrical control and automation—Relitorin International
-            Inc. provides a comprehensive range of solutions designed to power
-            your success.
+            Whatever the project—whether it's heavy machinery deployment,
+            industrial site preparation, construction equipment rental, or
+            specialized repair and maintenance services—Relitorin International
+            Inc. delivers a robust range of heavy equipment solutions to drive
+            your operations forward.
           </Text>
           <PvfImage src="/electricity/oilFiltererdTransformer.jpg" alt="pvc" />
         </Description>

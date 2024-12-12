@@ -9,7 +9,7 @@ import VisionMissionValue from "./components/pages/aboutUs/VisionMissionValue";
 import OurLocation from "./components/pages/aboutUs/OurLocation";
 import Gallery from "./components/pages/aboutUs/Gallery";
 import ElectricalsSolutions from "./components/pages/whatwedo/electricalSolution/ElectricalsSolutions";
-import HeavyEquipments from "./components/pages/whatwedo/HeavyEquipments";
+import HeavyEquipments from "./components/pages/whatwedo/heavyEquipment/HeavyEquipments";
 import InfrastructureCommunication from "./components/pages/whatwedo/InfrastructureCommunication";
 import SpecializedIindustrialSolutions from "./components/pages/whatwedo/SpecializedIindustrialSolutions";
 import SafetySecurity from "./components/pages/whatwedo/SafetySecurity";
@@ -40,6 +40,7 @@ import Texasinventories from "./components/pages/inventory/texasinventory/Texasi
 import PipesValvesFittings from "./components/pages/whatwedo/pipesValvesFittings/PipesValvesFittings";
 import DropDownSubCategory from "./components/ui/whatWeDo/DropDownSubCategory";
 import categories from "./components/pages/whatwedo/pipesValvesFittings/pipesValvesFittingsData";
+import electricalData from "./components/pages/whatwedo/electricalSolution/electricalData";
 
 function App() {
   return (
@@ -72,8 +73,12 @@ function App() {
               element={<PipesValvesFittings />}
             />
             <Route
-              path="category/:categoryId"
+              path="pipes/:categoryId"
               element={<DropDownSubCategory categories={categories} />}
+            />
+            <Route
+              path="electrical/:categoryId"
+              element={<DropDownSubCategory categories={electricalData} />}
             />
             <Route
               path="electricalssolutions"
